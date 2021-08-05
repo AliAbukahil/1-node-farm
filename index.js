@@ -97,11 +97,12 @@ const url = require("url");
         const output = tempOverview.replace("{%PRODUCT_CARDS%}", cardsHtml);
         res.end(output)
 
-    // Proudct page
+    // Product page
     } else if (pathname === "/product") {
         res.writeHead(200, {"Content-type": "text/html",});
         const product = dataObj[query.id]
-        res.end("This is the product!")
+        const output = replaceTemplte(tempProduct, product)
+        res.end(output);
 
     // API
     } else if (pathname === "/api") {
